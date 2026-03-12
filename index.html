@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>URL Location Demo</title>
+  <title>Get Mobile Location</title>
 </head>
 <body>
-  <h1>Extract URL Parts</h1>
-  <div id="output"></div>
+  <h1>Find My Location</h1>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="output"></p>
 
   <script>
-    // Get the full URL
-    const fullUrl = window.location.href;
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        document.getElementById("output").innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
 
-    // Extract parts
-    const hostname = window.location.hostname;
-    const path = window.location.pathname;
-    const query = window.location.search;
-    const hash = window.location.hash;
+    function showPosition(position) {
+      document.getElementById("output").innerHTML =
+        "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
 
-    // Display results
-    document.getElementById("output").innerHTML = `
-      <p><strong>Full URL:</strong> ${fullUrl}</p>
-      <p><strong>Hostname:</strong> ${hostname}</p>
-      <p><strong>Path:</strong> ${path}</p>
-      <p><strong>Query:</strong> ${query}</p>
-      <p><strong>Hash:</strong> ${hash}</p>
-    `;
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          document.getElementById("output").innerHTML = "User denied the request for Geolocation.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          document.getElementById("output").innerHTML = "Location information is unavailable.";
+          break;
+        case error.TIMEOUT:
+          document.getElementById("output").innerHTML = "The request to get user location timed out.";
+          break;
+        default:
+          document.getElementById("output").innerHTML = "An unknown error occurred.";
+      }
+    }
   </script>
 </body>
 </html>
