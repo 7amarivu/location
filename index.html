@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Location Demo</title>
+</head>
+<body>
+  <h1>Extract URL Parts</h1>
+  <div id="output"></div>
+
+  <script>
+    // Get the full URL
+    const fullUrl = window.location.href;
+
+    // Extract parts
+    const hostname = window.location.hostname;
+    const path = window.location.pathname;
+    const query = window.location.search;
+    const hash = window.location.hash;
+
+    // Display results
+    document.getElementById("output").innerHTML = `
+      <p><strong>Full URL:</strong> ${fullUrl}</p>
+      <p><strong>Hostname:</strong> ${hostname}</p>
+      <p><strong>Path:</strong> ${path}</p>
+      <p><strong>Query:</strong> ${query}</p>
+      <p><strong>Hash:</strong> ${hash}</p>
+    `;
+  </script>
+</body>
+</html>
