@@ -1,0 +1,56 @@
+.macbook-feature-usps{padding-bottom: 170px;}
+.offer-process-container{
+	background: #E1FBF1;
+	border: 1px solid #61797E;
+	border-radius: 20px;
+	margin-top: -165px;
+}
+.offer-process-container .process-tag{
+	background: #3AE4A7;
+	color: #333333;
+}
+.offer-process-container .process-step-block span.card{
+	background: #F6FFFC;
+	color: #333333;
+	border: 1px solid #61797E;
+	border-radius: 10px;
+	height: 71px; width: 71px;
+}
+.offer-process-container .process-step-block p{color: #191919; opacity: 0.85; line-height: 1.4; max-width: 70%; margin: 0 auto;}
+.offer-process-container .process-step-block small.direction{position: absolute; right: -26px; top: 26px; width: 55px;}
+@media (max-width: 767.98px) {
+	.offer-process-container .process-step-block small.direction{position: static; right: auto; left: auto; top: auto;}
+	.offer-process-container .process-step-block small.direction img{transform: rotate(90deg); margin-top: 36px;}
+}
+
+.offer-form-section{padding-top: 60px;}
+
+.offer-form-container{background: #F9F9F9; border: 1px solid #DCDCDC; border-radius: 20px;}
+.offer-form-container .offer-form-steps{border-bottom: 1px solid #DCDCDC;}
+
+.offer-form-steps .form-steps {display: flex; justify-content: space-between; max-width: 850px; margin: 0 auto;}
+.offer-form-steps .step-indicator {display: flex; align-items: center; width: 25%; flex-grow:1;}
+.offer-form-steps .step-number {font-size: 18px; font-weight: 600; width: 52px; height: 52px; border-radius: 50%; background-color: #ddd; display: flex; justify-content: center; align-items: center; margin-right: 16px; flex-shrink: 0;}
+.offer-form-steps .step-title {font-weight: 600; flex-grow: 1; font-size: 13px; max-width: 100px;}
+.offer-form-steps .step-indicator.active .step-number{background-color: var(--bs-primary); color: #fff;}
+.offer-form-steps .step-indicator.active .step-title{color: var(--bs-primary);}
+.offer-form-content{border-bottom: 1px solid #DCDCDC;}
+.offer-form-content .form-step {display: none;}
+.offer-form-content .form-step.active {display: block;}
+.form-navigation {text-align: right;}
+.form-navigation .btn {font-size: 14px; font-weight: 300; padding: 10px 30px; min-width: 140px;}
+
+/*OFFER PRODUCT BLOCK SLIDER*/
+.offer-product-block{display: block;}
+.offer-product-block .btn{background-color: #fff!important; border-color: #E6E6E6; border-radius:10px; }
+.offer-product-block .btn-check {clip: auto; top: 10px; left: 10px;}
+.offer-product-block .btn{background-color: #fff!important; border-color: #E6E6E6; border-radius:10px; }
+
+.product-slider-container{position: relative; padding-top: 20px;}
+.product-slider-container .swiper-navigation {position: absolute; right: 0; top: -15px; width: 90px; height: 30px; line-height: 1; }
+
+/*REGISTER FORM*/
+.offer-form-content label{font-size: 13px; font-weight: 600; color: #111;}
+.offer-form-content .form-group{margin-bottom: 10px;}
+.offer-form-content .form-control,
+.offer-form-content .form-select{font-size: 13px; border-radius: 6px; color: #444;}

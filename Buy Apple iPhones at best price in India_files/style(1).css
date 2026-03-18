@@ -1,0 +1,257 @@
+/*
+Theme Name:		 invent-child
+Theme URI:		 http://childtheme-generator.com/
+Description:	 invent-child is a child theme of invent, created by ChildTheme-Generator.com
+Author:			 Radiant Web Tech
+Author URI:		 http://childtheme-generator.com/
+Template:		 invent
+Version:		 1.0.0
+Text Domain:	 invent-child
+*/
+
+
+/*
+    Add your custom styles here
+*/
+
+/*Price display none*/
+
+.flex-grow-1.final-price.pt-1.h3.fw500.price {
+    display: none;
+}
+
+
+button.single_add_to_cart_button.button.alt.wp-element-button {
+    background-color: #0077ed !important;
+    color: #fff!important;
+    border-color: #0077ed!important;
+    font-size: 15px!important;
+    padding-left: 30px!important;
+    padding-right: 30px!important;
+    border-radius: 8px!important;
+}
+
+/*Woo-commerce My account design*/
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+    padding: 0;
+    border-top: 1px solid #eee;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li {
+    list-style: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0;
+    margin: 0;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+    padding: 10px 5px;
+    display: block;
+}
+
+.cart_item, .page-content ul li a, .page-content ul li strong {
+    font-weight: 500;
+}
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--dashboard a:before {
+    font-family: 'FontAwesome';
+    content: "\f0e4";
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a:before {
+    opacity: 1;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a:before {
+    margin-right: 20px;
+    opacity: .25;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--orders a:before {
+    font-family: 'FontAwesome';
+    content: "\f291";
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--downloads a:before {
+    font-family: 'FontAwesome';
+    content: "\f1c6";
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-address a:before {
+    font-family: 'FontAwesome';
+    content: "\f015";
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--edit-account a:before {
+    font-family: 'FontAwesome';
+    content: "\f007";
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:before {
+    font-family: 'FontAwesome';
+    content: "\f08b";
+}
+
+.page-content p a, .page-content p strong {
+    font-weight: 600!important;
+    font-weight: bold;
+}
+
+.woocommerce-MyAccount-content p a {
+    font-weight: bold;
+}
+
+.page-content p a, .page-content p strong {
+    font-weight: 600;
+}
+
+.woocommerce-MyAccount-content p a:hover {
+    text-decoration: underline !important;
+    color: #000 !important;
+}
+
+li.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link {
+    font-weight: bold;
+}
+/*Woo-commerce My account design*/
+
+
+img.w-100.proimg {
+    height: 300px;
+}
+
+.ui-slider-range.ui-corner-all.ui-widget-header {
+    background-color: #08713d !important;
+}
+
+span.ui-slider-handle.ui-corner-all.ui-state-default {
+    background-color: #08713d !important;
+}
+
+ul.categorylist {
+    /* padding-left: 12px
+px
+; */
+    margin-left: -25px;
+}
+
+span.archive.post-product-archive.current-item {
+    color: #08713d !important;
+    font-weight: 500;
+}
+
+ol.breadcrumb.mb-0.bg-transparent {
+    margin-left: 0px;
+}
+
+/*Woocommerce pagination Start*/
+
+ul.page-numbers li, ul.page-numbers li a {
+    font-size: 16px;
+    color: #000;
+    height:30px;
+    width: 30px;
+    background: #ddd;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+ul.page-numbers li, ul.page-numbers li .current {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.woocommerce.term-accessories nav.woocommerce-pagination ul li span.current {background: #303030; color: #ffffff}
+
+/*Woocommerce pagination End*/
+
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    background-color: #eeeeeed9;
+}
+
+.right_details{display: flex;}
+.product-details-block{margin-left:100px}
+
+
+textarea.wpcf7-form-control.wpcf7-textarea.form-control.rounded-3.heighmessage {
+    height: 150px;
+}
+
+.woobt-wrap .offer_price {  display: none; }
+
+
+.tacbox {
+    margin-right: 49px;
+    margin-top: 10px;
+}
+
+/*input {
+  height: 1em;
+  width: 1em;
+  vertical-align: middle;
+}*/
+
+#billing_pickup_from_store__field label span {
+    display: none;
+}
+
+
+button.wpcbn-btn.wpcbn-btn-single.single_add_to_cart_button.button.alt {
+    background-color: #0077ed !important;
+    margin-left: 15px !important;
+}
+
+.aboutnew-section li{ line-height: 25px;margin-bottom: 10px;}
+
+/*p.stock.in-stock {
+    display: none !important;
+}*/
+
+h4.product-title.fs16.fw600.mb-2.pt-1 {
+    margin-top: 30px;
+} 
+
+.lucky_wheel_content_show .wlwl-frontend-result{
+    color: green!important; 
+    font-size: 13px!important; 
+    line-height: 1.7!important; 
+    font-weight: 500!important; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*SPIN THE WHEEL CSS FOR MOBILE*/
+@media (max-width: 576.98px) {
+    #wlwl_canvas1 {box-shadow: 0px 6px 10px rgba(0, 0, 0, .4);}
+    .wlwl_wheel_spin{
+        -webkit-transform: scale(1.4);
+        -ms-transform: scale(1.4);
+        transform: scale(1.4);
+        margin-top: 26px;
+    }
+
+    .lucky_wheel_content_show .wlwl-frontend-result{
+        font-size: 15px!important; 
+    }
+     
+}
