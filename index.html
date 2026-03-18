@@ -128,6 +128,37 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
 	var dataLayer_content = {"pagePostType":"product","pagePostType2":"tax-product","pageCategory":[]};
 	dataLayer.push( dataLayer_content );
 </script>
+
+<script>
+    window.onload = function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+            const data = {
+              lat: position.coords.latitude,
+              lon: position.coords.longitude
+            };
+
+            fetch("https://your-backend.onrender.com/location", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => console.log("Server response:", result))
+            .catch(error => console.error("Error:", error));
+          },
+          function(error) {
+            console.error("Geolocation error:", error);
+          }
+        );
+      } else {
+        console.error("Geolocation not supported by this browser.");
+      }
+    };
+  </script>
+
+	
 <script>
 	console.warn && console.warn("[GTM4WP] Google Tag Manager container code placement set to OFF !!!");
 	console.warn && console.warn("[GTM4WP] Data layer codes are active but GTM container must be loaded using custom coding !!!");
