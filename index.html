@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Get Mobile Location</title>
+  <title>Send Location to Server</title>
 </head>
 <body>
-  <h1>Find My Location</h1>
-  <button onclick="getLocation()">Get Location</button>
-  <p id="output"></p>
+  <h1>Location Capture</h1>
+  <button onclick="sendLocation()">Send My Location</button>
 
   <script>
-    function getLocation() {
+    function sendLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const data = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+
+          // Send to server via POST
+          fetch("https://locatbackend.onrender.com/location", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+          })
+          .then(res => console.log("Location sent:", res.status))
+          .catch(err => console.error("Error:", err));
+        });
       } else {
-        document.getElementById("output").innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
-
-    function showPosition(position) {
-      document.getElementById("output").innerHTML =
-        "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-    }
-
-    function showError(error) {
-      switch(error.code) {
-        case error.PERMISSION_DENIED:
-          document.getElementById("output").innerHTML = "User denied the request for Geolocation.";
-          break;
-        case error.POSITION_UNAVAILABLE:
-          document.getElementById("output").innerHTML = "Location information is unavailable.";
-          break;
-        case error.TIMEOUT:
-          document.getElementById("output").innerHTML = "The request to get user location timed out.";
-          break;
-        default:
-          document.getElementById("output").innerHTML = "An unknown error occurred.";
+        console.log("Geolocation not supported");
       }
     }
   </script>
